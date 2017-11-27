@@ -19,13 +19,13 @@ float t, h;
 #include <CayenneMQTTESP8266.h>
 
 // WiFi network info.
-char ssid[] = "Sfera";
-char wifiPassword[] = "sfera123";
+char ssid[] = "name_of_wifi_network";
+char wifiPassword[] = "password_for_wifi_network";
 
 // Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-char username[] = "ff52c610-d33d-11e7-b556-b7f707866213";
-char password[] = "086411e7918bdee89dbd2517856f497d7bcb97bc";
-char clientID[] = "e3395900-d345-11e7-9768-2143f8645011";
+char username[] = "MQTT Username";
+char password[] = "MQTT Password";
+char clientID[] = "Client ID";
 
 unsigned long lastMillis = 0;
 
