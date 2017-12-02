@@ -22,13 +22,13 @@ float t, h;
 #include <EEPROM.h>
 
 // WiFi network info.
-char ssid[] = "bbk2";
-char wifiPassword[] = "internet2";
+char ssid[] = "ssid";
+char wifiPassword[] = "wifiPassword";
 
 // Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-char username[] = "ff52c610-d33d-11e7-b556-b7f707866213";
-char password[] = "086411e7918bdee89dbd2517856f497d7bcb97bc";
-char clientID[] = "e3395900-d345-11e7-9768-2143f8645011";
+char username[] = "MQTT_USERNAME";
+char password[] = "MQTT_PASSWORD";
+char clientID[] = "CLIENT_ID";
 
 unsigned long lastMillis = 0;
 float tset = 25.;
