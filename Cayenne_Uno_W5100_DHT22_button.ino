@@ -1,5 +1,5 @@
 /*
-Cayenne Ethernet example nmodified by Nicu FLORICA (niq_ro), 11.12.2017, Craiova-Romania
+Cayenne Ethernet example modified by Nicu FLORICA (niq_ro), 11.12.2017, Craiova-Romania
 */
 
 //#define CAYENNE_DEBUG         // Uncomment to show debug messages
@@ -7,7 +7,7 @@ Cayenne Ethernet example nmodified by Nicu FLORICA (niq_ro), 11.12.2017, Craiova
 #include <CayenneEthernet.h>
 
 // Cayenne authentication token. This should be obtained from the Cayenne Dashboard.
-char token[] = "Auth Code";  // provided by Cayenne in page
+char token[] = "fk54kx9bk0";
 
 #include <DHT.h>
 #define DHTPIN 14 // what pin we're connected to 14 (A0)
@@ -16,6 +16,7 @@ char token[] = "Auth Code";  // provided by Cayenne in page
 #define DHTTYPE DHT22   // DHT 22 
 DHT dht(DHTPIN, DHTTYPE,11);
 float t, h;
+unsigned long lastMillis = 0;
 
 #define VIRTUAL_PIN 3
 #define RELAY_DIGITAL_PIN 2
@@ -41,9 +42,30 @@ void setup()
 void loop()
 {
   Cayenne.run();
+    if (millis() - lastMillis > 10000) {
+  h = dht.readHumidity();
+  t = dht.readTemperature();
+  Serial.print("Temperature: ");
+  Serial.print(t);
+  Serial.print(" degrees Celsius Humidity: "); 
+  Serial.println(h);
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+  h = dht.readHumidity();
+  t = dht.readTemperature();
+  Serial.print("Temperature: ");
+  Serial.print(t);
+  Serial.print(" degrees Celcius Humidity: "); 
+  Serial.println(h);
+  Cayenne.celsiusWrite(1, t);
+  Cayenne.virtualWrite(2, h);
+  lastMillis = millis();
+    }
 
 }
-
+/*
 // This function is called when the Cayenne widget requests data for the Virtual Pin.
 CAYENNE_OUT(VIRTUAL_PIN)
 {
@@ -56,12 +78,13 @@ CAYENNE_OUT(VIRTUAL_PIN)
   Serial.print(" degrees Celcius Humidity: "); 
   Serial.println(h);
 }
-
+*/
 CAYENNE_IN(VIRTUAL_PIN)
 {
   // get value sent from dashboard
   int currentValue = getValue.asInt(); // 0 to 1
-
+ Cayenne.celsiusWrite(1, t);
+  Cayenne.virtualWrite(2, h);
   // assuming you wire your relay as normally open
   if (currentValue == 0) {
     digitalWrite(RELAY_DIGITAL_PIN, HIGH);
