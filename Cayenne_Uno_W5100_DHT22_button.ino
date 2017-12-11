@@ -83,8 +83,8 @@ CAYENNE_IN(VIRTUAL_PIN)
 {
   // get value sent from dashboard
   int currentValue = getValue.asInt(); // 0 to 1
- Cayenne.celsiusWrite(1, t);
-  Cayenne.virtualWrite(2, h);
+ //Cayenne.celsiusWrite(1, t);
+  //Cayenne.virtualWrite(2, h);
   // assuming you wire your relay as normally open
   if (currentValue == 0) {
     digitalWrite(RELAY_DIGITAL_PIN, HIGH);
