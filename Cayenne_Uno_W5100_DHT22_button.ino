@@ -53,32 +53,12 @@ void loop()
     Serial.println("Failed to read from DHT sensor!");
     return;
   }
-  h = dht.readHumidity();
-  t = dht.readTemperature();
-  Serial.print("Temperature: ");
-  Serial.print(t);
-  Serial.print(" degrees Celcius Humidity: "); 
-  Serial.println(h);
-  Cayenne.celsiusWrite(1, t);
-  Cayenne.virtualWrite(2, h);
   lastMillis = millis();
     }
 
 }
-/*
-// This function is called when the Cayenne widget requests data for the Virtual Pin.
-CAYENNE_OUT(VIRTUAL_PIN)
-{
-  h = dht.readHumidity();
-  t = dht.readTemperature();
-  Cayenne.celsiusWrite(1, t);
-  Cayenne.virtualWrite(2, h);
-  Serial.print("Temperature: ");
-  Serial.print(t);
-  Serial.print(" degrees Celcius Humidity: "); 
-  Serial.println(h);
-}
-*/
+
+
 CAYENNE_IN(VIRTUAL_PIN)
 {
   // get value sent from dashboard
