@@ -7,7 +7,7 @@ Cayenne Ethernet example modified by Nicu FLORICA (niq_ro), 11.12.2017, Craiova-
 #include <CayenneEthernet.h>
 
 // Cayenne authentication token. This should be obtained from the Cayenne Dashboard.
-char token[] = "fk54kx9bk0";
+char token[] = "blabla";
 
 #include <DHT.h>
 #define DHTPIN 14 // what pin we're connected to 14 (A0)
