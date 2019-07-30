@@ -45,8 +45,8 @@ float t, h;
 #include <CayenneMQTTESP8266.h>
 
 // WiFi network info.
-char ssid[] = "bbk2";
-char wifiPassword[] = "internet2";
+char ssid[] = "wifi_network_name";
+char wifiPassword[] = "pasword_network";
 
 // Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
 char username[] = "char username";
