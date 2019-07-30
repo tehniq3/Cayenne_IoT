@@ -2,6 +2,7 @@
 use https://cayenne.mydevices.com/
 
 ![poza](https://1.bp.blogspot.com/--j_f_Uh1kZE/XUCZz0gcyBI/AAAAAAAAZ60/ZZWJXz0v2hUbpVGH_MzTHlfZRhJk5gIaQCLcBGAs/s1600/P1060487.JPG)
+info: http://nicuflorica.blogspot.com/2019/07/prezentare-stocare-date-si-executare.html 
 
 
 
